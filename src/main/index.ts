@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron';
 import { join } from 'path';
 import path from 'node:path';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils';
+import { createFileRoute, createURLRoute } from 'electron-router-dom';
 
 function createWindow(): void {
   // Create the browser window.
@@ -37,12 +38,22 @@ function createWindow(): void {
     return { action: 'deny' };
   });
 
+  const devServerURL = createURLRoute(
+    process.env.ELECTRON_RENDERER_URL!,
+    'main',
+  );
+
+  const fileRoute = createFileRoute(
+    path.join(__dirname, '../renderer/index.html'),
+    'main',
+  );
+
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env.ELECTRON_RENDERER_URL) {
-    mainWindow.loadURL(process.env.ELECTRON_RENDERER_URL);
+    mainWindow.loadURL(devServerURL);
   } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'));
+    mainWindow.loadFile(...fileRoute);
   }
 }
 
