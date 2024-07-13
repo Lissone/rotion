@@ -24,6 +24,7 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
+    "@radix-ui/react-collapsible": "^1.1.0",
     "@tailwindcss/typography": "^0.5.13",
     "@tiptap/extension-document": "^2.4.0",
     "@tiptap/extension-highlight": "^2.4.0",
