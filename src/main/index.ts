@@ -11,6 +11,7 @@ function createWindow(): void {
     show: false,
     icon: path.resolve(__dirname, 'icon.png'),
     autoHideMenuBar: true,
+    backgroundColor: '#17141f',
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false,
