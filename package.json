@@ -1,7 +1,7 @@
 {
   "name": "rotion",
   "productName": "Rotion",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Notion alternative written with Electron",
   "author": "Leonardo Dias Lissone Santomero <leonardo.lissonez@gmail.com>",
   "homepage": "https://www.leonardo-lissone.vercel.app",
