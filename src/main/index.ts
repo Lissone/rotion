@@ -5,6 +5,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils';
 import { createFileRoute, createURLRoute } from 'electron-router-dom';
 
 import './ipc';
+import { createTray } from './tray';
 
 function createWindow(): void {
   // Create the browser window.
@@ -12,7 +13,7 @@ function createWindow(): void {
     width: 1120,
     height: 700,
     show: false,
-    icon: path.resolve(__dirname, 'icon.png'),
+    icon: path.resolve(__dirname, '../../resources', 'icon.png'),
     autoHideMenuBar: true,
     backgroundColor: '#17141f',
     titleBarStyle: 'hiddenInset',
@@ -30,6 +31,8 @@ function createWindow(): void {
       sandbox: false,
     },
   });
+
+  createTray(mainWindow);
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show();
@@ -60,7 +63,7 @@ function createWindow(): void {
 }
 
 if (process.platform === 'darwin') {
-  app.dock.setIcon(path.resolve(__dirname, 'icon.png'));
+  app.dock.setIcon(path.resolve(__dirname, '../../resources', 'icon.png'));
 }
 
 // This method will be called when Electron has finished
