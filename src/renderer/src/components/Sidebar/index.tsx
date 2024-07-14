@@ -15,9 +15,7 @@ export function Sidebar() {
     queryFn: async () => {
       const response = await window.api.fetchDocuments();
 
-      console.log(response);
-
-      return response;
+      return response.data;
     },
   });
 
