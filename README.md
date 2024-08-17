@@ -37,7 +37,7 @@ The main goal of this project was to explore the Electron framework, investigati
 
 ## Demonstration
 
-//! Add demonstration video
+https://github.com/user-attachments/assets/49dfdd92-6107-48a2-bc80-e9f016c12357
 
 ## Requirements
 
